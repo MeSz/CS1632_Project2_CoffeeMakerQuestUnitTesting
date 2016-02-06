@@ -90,9 +90,9 @@
  *          [ ] Get Coffee (add coffee to player inventory)
  *          [ ] Get Cream (add cream to player inventory)
  *          [ ] Get Sugar (add sugar to player inventory)
- *          [ ] Check Coffee (does player have coffee in inventory)
- *          [ ] Check Cream (does player have cream in inventory)
- *          [ ] Check Sugar (does player have sugar in inventory)
+ *          [ ] Check Coffee (does player have coffee in inventory?)
+ *          [ ] Check Cream (does player have cream in inventory?)
+ *          [ ] Check Sugar (does player have sugar in inventory?)
  * 
  * ---------------------------------------------------------------------------------------------[ END SELF-CHECKS ]--
  */

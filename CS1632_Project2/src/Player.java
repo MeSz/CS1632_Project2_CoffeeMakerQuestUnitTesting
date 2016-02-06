@@ -9,21 +9,21 @@
  *     [ ] Get Coffee (add coffee to player inventory)
  *     [ ] Get Cream (add cream to player inventory)
  *     [ ] Get Sugar (add sugar to player inventory)
- *     [ ] Check Coffee (does player have coffee in inventory)
- *     [ ] Check Cream (does player have cream in inventory)
- *     [ ] Check Sugar (does player have sugar in inventory)
+ *     [ ] Check Coffee (does player have coffee in inventory?)
+ *     [ ] Check Cream (does player have cream in inventory?)
+ *     [ ] Check Sugar (does player have sugar in inventory?)
  */
 public class Player {
-    private boolean _hasCoffee = false;
-    private boolean _hasCream = false;
-    private boolean _hasSugar = false;
+    private boolean hasCoffee = false;
+    private boolean hasCream = false;
+    private boolean hasSugar = false;
     
     public Player() {
         
     }
     
     public boolean drink() {
-        return (_hasCoffee && _hasCream && _hasSugar);
+        return (this.hasCoffee && this.hasCream && this.hasSugar);
     }
     
     public static void showInventory() {
@@ -31,26 +31,26 @@ public class Player {
     }
     
     public boolean hasCoffee() {
-        return _hasCoffee;
+        return this.hasCoffee;
     }
     
     public boolean hasCream() {
-        return _hasCream;
+        return this.hasCream;
     }
     
     public boolean hasSugar() {
-        return _hasSugar;
+        return this.hasSugar;
     }
     
     public void getCoffee() {
-        _hasCoffee = true;
+        this.hasCoffee = true;
     }
     
     public void getCream() {
-        _hasCream = true;
+        this.hasCream = true;
     }
     
     public void getSugar() {
-        _hasSugar = true;
+        this.hasSugar = true;
     }
 }
