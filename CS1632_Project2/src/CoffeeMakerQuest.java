@@ -99,7 +99,7 @@
 public class CoffeeMakerQuest {
 
     public static void main(String args[]) {
-        Room testroom = new Room("Small", "Quaint", "sofa", "Magenta", null, false, true, false);
+        Room testroom = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, false);
 
         System.out.println(testroom);
     }

@@ -72,9 +72,21 @@ public class Room {
             this.adjSouthDoor = door_south_adjective;
         }
 
-        this.hasCoffee = hasCoffee;
-        this.hasCream = hasCream;
-        this.hasSugar = hasSugar;
+        /**
+         * Want to only allow two valid scenarios for the coffee-related items:
+         *  1) The Coffee, Cream, and Sugar items do NOT exist in the room.
+         *  2) ONLY ONE Coffee, Sugar, OR Cream item exists in the room.
+         */
+        if ( ((hasCoffee==false) && (hasCream==false) && (hasSugar==false)) ||
+             ((hasCoffee ^ hasCream ^ hasSugar) ^ (hasCoffee && hasCream && hasSugar))
+           ) {
+            this.hasCoffee = hasCoffee;
+            this.hasCream = hasCream;
+            this.hasSugar = hasSugar;
+        } else {
+            throw new IllegalArgumentException("This room can contain either NO coffee-related items, "
+                    + "or only ONE coffee-related item.");
+        }
     }
 
     /**
