@@ -128,11 +128,11 @@ public class CoffeeMakerQuest {
         boolean done = false;
         while (!done) {
             
-            // show the contents of the room
+            // show the contents of the room and user instructions
             System.out.println(room);
-        
-            // show instructions and get user input (uppercase)
             System.out.println(" INSTRUCTIONS (N,S,L,I,D) >");
+            
+            // get user input (uppercase)
             input = br.readLine().toUpperCase();
             
             switch (input) {
