@@ -124,8 +124,7 @@ public class RoomTest {
         String expResult = "\n" +
                             "You see a Small room.\n" +
                             "It has a Quaint sofa.\n" +
-                            "A Magenta door leads North.\n" +
-                            "\n";
+                            "A Magenta door leads North.\n";
         String result = instance.getDescription();
         assertEquals(expResult, result);
         System.out.println("Passed!");
@@ -141,8 +140,7 @@ public class RoomTest {
         String expResult = "\n" +
                             "You see a Small room.\n" +
                             "It has a Quaint sofa.\n" +
-                            "A Magenta door leads North.\n" +
-                            "\n";
+                            "A Magenta door leads North.\n";
         String result = instance.toString();
         assertEquals(expResult, result);
         System.out.println("Passed!");

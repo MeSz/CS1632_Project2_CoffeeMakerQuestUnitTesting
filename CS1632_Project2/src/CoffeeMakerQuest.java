@@ -1,4 +1,10 @@
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import javax.xml.bind.annotation.XmlElement;
+
+
 /**
  * CS1632 Project 2: Unit Testing (Coffee Maker Quest)
  * 
@@ -79,29 +85,79 @@
  *      [X] ZERO (0) or ONE (1) Unique coffee-related item in the room
  *          [ ] (this should just be picked from a "coffee-items" array)
  *
- * [ ] Player Object
- *      [ ] Inventory
- *          [ ] Coffee
- *          [ ] Cream
- *          [ ] Sugar
- *      [ ] Actions
- *          [ ] Drink (test the inventory for all objects)
- *          [ ] Show Inventory (Print out what the user has/doesn't have)
- *          [ ] Get Coffee (add coffee to player inventory)
- *          [ ] Get Cream (add cream to player inventory)
- *          [ ] Get Sugar (add sugar to player inventory)
- *          [ ] Check Coffee (does player have coffee in inventory?)
- *          [ ] Check Cream (does player have cream in inventory?)
- *          [ ] Check Sugar (does player have sugar in inventory?)
+ * [X] Player Object
+ *      [X] Inventory
+ *          [X] Coffee
+ *          [X] Cream
+ *          [X] Sugar
+ *      [X] Actions
+ *          [X] Drink (test the inventory for all objects)
+ *          [X] Show Inventory (Print out what the user has/doesn't have)
+ *          [X] Get Coffee (add coffee to player inventory)
+ *          [X] Get Cream (add cream to player inventory)
+ *          [X] Get Sugar (add sugar to player inventory)
+ *          [X] Check Coffee (does player have coffee in inventory?)
+ *          [X] Check Cream (does player have cream in inventory?)
+ *          [X] Check Sugar (does player have sugar in inventory?)
  * 
  * ---------------------------------------------------------------------------------------------[ END SELF-CHECKS ]--
  */
 public class CoffeeMakerQuest {
+    private static final String[] adjRoom = {"Small", "Large"};
+    private static final String[] adjNorthDoors = {"Magenta", "Beige"};
+    private static final String[] adjSouthDoors = {null, "Massive"};
+    private static final String[] adjFurniture = {"Quaint", "Sad"};
+    private static final String[] Furniture = {"sofa", "record player"};
 
-    public static void main(String args[]) {
-        Room testroom = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, false);
-
-        System.out.println(testroom);
+    public static void main(String args[]) throws IOException {
+        // build all of the rooms from the rooms array
+        Room[] rooms = new Room[adjRoom.length];
+        int num = 0;
+        for (String adjRoom : adjRoom) {
+            rooms[num++] = new Room(adjRoom, adjRoom, adjRoom, adjRoom, adjRoom, true, false, false);
+        }
+ 
+        
+        Room room = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, false);
+        
+        // create a reader to get the user's input
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String input;
+        
+        // loop until the the player drinks
+        boolean done = false;
+        while (!done) {
+            
+            // show the contents of the room
+            System.out.println(room);
+        
+            // show instructions and get user input (uppercase)
+            System.out.println(" INSTRUCTIONS (N,S,L,I,D) >");
+            input = br.readLine().toUpperCase();
+            
+            switch (input) {
+                case "N": // go thru the North door (if exists)
+                    break;
+                    
+                case "S": // go thru the South door (if exists)
+                    break;
+                    
+                case "L": // look in the current room for coffee/cream/sugar
+                    break;
+                    
+                case "I": // show the current user's coffee-item inventory
+                    break;
+                    
+                case "D": // perform the drink operation on the current player
+                    done = true;
+                    break;
+                    
+                default: // invalid input
+                    System.out.println("What?");
+            }
+            
+            
+        }
     }
 
 }

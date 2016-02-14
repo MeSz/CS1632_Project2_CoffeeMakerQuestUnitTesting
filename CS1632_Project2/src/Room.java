@@ -157,7 +157,7 @@ public class Room {
      * @return A description of the entire room.
      */
     public String getDescription() {
-        return "\n" + getRoom() + getFurnishing() + getNorthDoor() + getSouthDoor() + "\n";
+        return "\n" + getRoom() + getFurnishing() + getNorthDoor() + getSouthDoor();
     }
 
     /**
