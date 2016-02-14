@@ -26,8 +26,32 @@ public class Player {
         return (this.hasCoffee && this.hasCream && this.hasSugar);
     }
     
-    public static void showInventory() {
+    public String showInventory() {
+        StringBuilder sb = new StringBuilder();
         
+        sb.append("\n");
+        
+        if (this.hasCoffee) {
+            sb.append("You have a cup of delicious coffee.\n");
+        } else {
+            sb.append("YOU HAVE NO COFFEE!\n");
+        }
+        
+        if (this.hasCream) {
+            sb.append("You have some fresh cream.\n");
+        } else {
+            sb.append("YOU HAVE NO CREAM!\n");
+        }
+        
+        if (this.hasSugar) {
+            sb.append("You have some tasty sugar.\n");
+        } else {
+            sb.append("YOU HAVE NO SUGAR!\n");
+        }
+        
+        sb.append("\n");
+        
+        return sb.toString();
     }
     
     public boolean hasCoffee() {
