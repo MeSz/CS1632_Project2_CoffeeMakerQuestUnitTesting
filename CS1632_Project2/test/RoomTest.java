@@ -44,11 +44,8 @@ public class RoomTest {
     public void testGetFurnishing() {
         System.out.println("getFurnishing");
         Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, false);
-        String expResult = "";
         String result = instance.getFurnishing();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("It has a Quaint sofa.\n", result);
     }
 
     /**
@@ -56,14 +53,11 @@ public class RoomTest {
      */
     @Test
     public void testGetRoom() {
-        System.out.println("getRoom");
+        System.out.println("getRoom testing...");
         Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, false);
-        String expResult = "";
+        String expResult = "You see a Small room.\n";
         String result = instance.getRoom();
-        Room mockedRoom = mock(Room.class);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -71,13 +65,11 @@ public class RoomTest {
      */
     @Test
     public void testHasNorthDoor() {
-        System.out.println("hasNorthDoor");
+        System.out.println("hasNorthDoor testing...");
         Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, false);
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.hasNorthDoor();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -90,8 +82,6 @@ public class RoomTest {
         boolean expResult = false;
         boolean result = instance.hasSouthDoor();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -101,11 +91,9 @@ public class RoomTest {
     public void testGetNorthDoor() {
         System.out.println("getNorthDoor");
         Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, false);
-        String expResult = "";
+        String expResult = "Magenta";
         String result = instance.getNorthDoor();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -129,7 +117,9 @@ public class RoomTest {
     public void testGetDescription() {
         System.out.println("getDescription");
         Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, false);
-        String expResult = "";
+        String expResult = "\nYou see a Small room.\n" +
+                            "It has a Quaint sofa.\n" +
+                            "A Magenta door leads North.\n";
         String result = instance.getDescription();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.

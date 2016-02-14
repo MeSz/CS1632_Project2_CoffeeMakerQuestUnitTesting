@@ -8,7 +8,6 @@
  *  [X] ZERO or ONE doors leading South
  */
 public class Room {
-
     private String furnishing = null;       // furnishing in the room
     private String adjFurnishing = null;    // adjective for the furnishing in the room
     private String adjRoom = null;          // adjective for the room
