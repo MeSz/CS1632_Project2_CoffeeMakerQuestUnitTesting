@@ -42,10 +42,11 @@ public class RoomTest {
      */
     @Test
     public void testGetFurnishing() {
-        System.out.println("getFurnishing");
+        System.out.println("getFurnishing testing...");
         Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, false);
         String result = instance.getFurnishing();
         assertEquals("It has a Quaint sofa.\n", result);
+        System.out.println("Passed!");
     }
 
     /**
@@ -58,6 +59,7 @@ public class RoomTest {
         String expResult = "You see a Small room.\n";
         String result = instance.getRoom();
         assertEquals(expResult, result);
+        System.out.println("Passed!");
     }
 
     /**
@@ -70,6 +72,7 @@ public class RoomTest {
         boolean expResult = true;
         boolean result = instance.hasNorthDoor();
         assertEquals(expResult, result);
+        System.out.println("Passed!");
     }
 
     /**
@@ -77,11 +80,12 @@ public class RoomTest {
      */
     @Test
     public void testHasSouthDoor() {
-        System.out.println("hasSouthDoor");
+        System.out.println("hasSouthDoor testing...");
         Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, false);
         boolean expResult = false;
         boolean result = instance.hasSouthDoor();
         assertEquals(expResult, result);
+        System.out.println("Passed!");
     }
 
     /**
@@ -89,11 +93,12 @@ public class RoomTest {
      */
     @Test
     public void testGetNorthDoor() {
-        System.out.println("getNorthDoor");
+        System.out.println("getNorthDoor testing...");
         Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, false);
-        String expResult = "Magenta";
+        String expResult = "A Magenta door leads North.\n";
         String result = instance.getNorthDoor();
         assertEquals(expResult, result);
+        System.out.println("Passed!");
     }
 
     /**
@@ -101,13 +106,12 @@ public class RoomTest {
      */
     @Test
     public void testGetSouthDoor() {
-        System.out.println("getSouthDoor");
+        System.out.println("getSouthDoor testing...");
         Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, false);
         String expResult = "";
         String result = instance.getSouthDoor();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("Passed!");
     }
 
     /**
@@ -115,15 +119,16 @@ public class RoomTest {
      */
     @Test
     public void testGetDescription() {
-        System.out.println("getDescription");
+        System.out.println("getDescription testing...");
         Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, false);
-        String expResult = "\nYou see a Small room.\n" +
+        String expResult = "\n" +
+                            "You see a Small room.\n" +
                             "It has a Quaint sofa.\n" +
-                            "A Magenta door leads North.\n";
+                            "A Magenta door leads North.\n" +
+                            "\n";
         String result = instance.getDescription();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("Passed!");
     }
 
     /**
@@ -131,13 +136,16 @@ public class RoomTest {
      */
     @Test
     public void testToString() {
-        System.out.println("toString");
+        System.out.println("toString testing...");
         Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, false);
-        String expResult = "";
+        String expResult = "\n" +
+                            "You see a Small room.\n" +
+                            "It has a Quaint sofa.\n" +
+                            "A Magenta door leads North.\n" +
+                            "\n";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("Passed!");
     }
     
 }
