@@ -108,14 +108,12 @@ public class CoffeeMakerQuest {
     private static final String[] furnitures = {"sofa", "record player", "Pizza", "energy drink", "bag of money", "air hockey table"};
     private static final String[] adjNorthDoors = {"Magenta", "Beige", "Dead", "Vivacious", "Purple", null};
     private static final String[] adjSouthDoors = {null, "Massive", "Smart", "Slim", "Sandy", "Minimalist"};
-    private static Room[] rooms;
     private static int num;
     
     public static void main(String args[]) throws IOException {
         // build all of the rooms from the rooms array
-    	initializeGame();
-    	
-    	
+    	Room[] rooms =  initializeGame();
+    
         // create a reader to get the user's input
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String input;
@@ -132,16 +130,16 @@ public class CoffeeMakerQuest {
           System.out.println(rooms[num]);
           System.out.println(" INSTRUCTIONS (N,S,L,I,D) >");
           command = getCommand();
-          done = executeCommand(command, player);  
+          done = executeCommand(command, player, rooms[num]);  
         }
     }
 
-	private static boolean executeCommand(String command, Player player) {
+	public static boolean executeCommand(String command, Player player, Room room) {
 		boolean done = false;
         switch (command) {
         case "N": // go thru the North door (if exists)
         	
-            if (rooms[num].hasNorthDoor()) {
+            if (room.hasNorthDoor()) {
                 num++;
             } else {
                 System.out.println("No North door exists!");
@@ -149,7 +147,7 @@ public class CoffeeMakerQuest {
             break;
             
         case "S": // go thru the South door (if exists)
-            if (rooms[num].hasSouthDoor()) {
+            if (room.hasSouthDoor()) {
                 num--;
             } else {
                 System.out.println("No South door exists!");
@@ -157,17 +155,17 @@ public class CoffeeMakerQuest {
             break;
             
         case "L": // look in the current room for coffee/cream/sugar
-            if (rooms[num].hasCoffee()) {                        
+            if (room.hasCoffee()) {                        
                 // add the Coffee item to the player's inventory
                 player.getCoffee();
                 System.out.println("There might be something here...\nYou found some caffeinated coffee!");
                 
-            } else if (rooms[num].hasCream()) {                        
+            } else if (room.hasCream()) {                        
                 // add the Cream item to the player's inventory
                 player.getCream();
                 System.out.println("There might be something here...\nYou found some creamy cream!");
                 
-            } else if (rooms[num].hasSugar()) {                        
+            } else if (room.hasSugar()) {                        
                 // add the Sugar item to the player's inventory
                 player.getSugar();
                 System.out.println("There might be something here...\nYou found some sweet sugar!");
@@ -221,7 +219,7 @@ public class CoffeeMakerQuest {
 		return done;
 	}
 
-	private static String getCommand() throws IOException {
+	public static String getCommand() throws IOException {
 		 // create a reader to get the user's input
 		String command;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -229,7 +227,7 @@ public class CoffeeMakerQuest {
 		return command;
 	}
 
-	private static void initializeGame() {
+	public static Room[] initializeGame() {
 		Room[] rooms = new Room[adjRooms.length];
         int num = 0;
         for (String adjRoom : adjRooms) {
@@ -237,6 +235,7 @@ public class CoffeeMakerQuest {
                     adjNorthDoors[num], adjSouthDoors[num], true, false, false);
             num++;
         }
+        return rooms;
 		
 	}
 

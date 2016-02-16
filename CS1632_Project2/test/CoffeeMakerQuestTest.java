@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 /**
  *
@@ -40,16 +41,24 @@ public class CoffeeMakerQuestTest {
      * Test of main method, of class CoffeeMakerQuest.
      */
     @Test
-    public void testExecuteCommand(){
+    public void testExecuteCommand_N(){
+        Room mockRoom = mock(Room.class);
+        Player instance = new Player();
+        when(mockRoom.hasNorthDoor()).thenReturn(true);
+        assertFalse(CoffeeMakerQuest.executeCommand("N", instance, mockRoom));
         
+    }
+    public void testExecuteCommand_S(){
+    	Player mockPlayer = mock(Player.class);
+    	
     }
     
     @Test
     public void testInitializeGame(){
-    	Room mockRoom = mock(Room.class);
+    	//Room mockRoom = mock(Room.class);
     	
     }
-    @test
+    @Test
     public void testGetCommand(){
     	
     }
