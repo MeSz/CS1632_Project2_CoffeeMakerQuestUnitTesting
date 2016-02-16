@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import javax.xml.bind.annotation.XmlElement;
 
 /**
  * CS1632 Project 2: Unit Testing (Coffee Maker Quest)
@@ -126,7 +125,7 @@ public class CoffeeMakerQuest {
         while (!done) {
             // show the contents of the room and user instructions
             System.out.println(rooms[num]);
-            System.out.println(" INSTRUCTIONS (N,S,L,I,D) >");
+            System.out.println(" INSTRUCTIONS (N,S,L,I,D). Enter 'H' for more help. >");
             command = getCommand();
             done = executeCommand(command, player, rooms[num]);
         }
