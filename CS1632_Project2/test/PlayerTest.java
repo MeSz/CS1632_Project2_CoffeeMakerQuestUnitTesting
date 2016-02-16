@@ -76,6 +76,81 @@ public class PlayerTest {
         assertEquals(expResult, result);
         System.out.println("Passed!");
     }
+    @Test
+    public void testShowInventoryCoffeeCream() {
+        System.out.println("showInventory with coffee & cream testing...");
+        Player instance = new Player();
+        instance.getCoffee();
+        instance.getCream();
+        String expResult = "\nYou have a cup of delicious coffee.\n" +
+                            "You have some fresh cream.\n" +
+                            "YOU HAVE NO SUGAR!\n\n";
+        String result = instance.showInventory();
+        assertEquals(expResult, result);
+        System.out.println("Passed!");
+    }
+    @Test
+    public void testShowInventoryCoffeeSugar() {
+        System.out.println("showInventory with coffee & sugar testing...");
+        Player instance = new Player();
+        instance.getCoffee();
+        instance.getSugar();
+        String expResult = "\nYou have a cup of delicious coffee.\n" +
+                            "YOU HAVE NO CREAM!\n" +
+                            "You have some tasty sugar.\n\n";
+        String result = instance.showInventory();
+        assertEquals(expResult, result);
+        System.out.println("Passed!");
+    }
+    @Test
+    public void testShowInventoryCreamSugar() {
+        System.out.println("showInventory with cream & sugar testing...");
+        Player instance = new Player();
+        instance.getCream();
+        instance.getSugar();
+        String expResult = "\nYOU HAVE NO COFFEE!\n" +
+                            "You have some fresh cream.\n" +
+                            "You have some tasty sugar.\n\n";
+        String result = instance.showInventory();
+        assertEquals(expResult, result);
+        System.out.println("Passed!");
+    }
+    @Test
+    public void testShowInventoryCoffee() {
+        System.out.println("showInventory with coffee testing...");
+        Player instance = new Player();
+        instance.getCoffee();
+        String expResult = "\nYou have a cup of delicious coffee.\n" +
+                            "YOU HAVE NO CREAM!\n" +
+                            "YOU HAVE NO SUGAR!\n\n";
+        String result = instance.showInventory();
+        assertEquals(expResult, result);
+        System.out.println("Passed!");
+    }
+    @Test
+    public void testShowInventoryCream() {
+        System.out.println("showInventory with cream testing...");
+        Player instance = new Player();
+        instance.getCream();
+        String expResult = "\nYOU HAVE NO COFFEE!\n" +
+                            "You have some fresh cream.\n" +
+                            "YOU HAVE NO SUGAR!\n\n";
+        String result = instance.showInventory();
+        assertEquals(expResult, result);
+        System.out.println("Passed!");
+    }
+    @Test
+    public void testShowInventorySugar() {
+        System.out.println("showInventory with sugar testing...");
+        Player instance = new Player();
+        instance.getSugar();
+        String expResult = "\nYOU HAVE NO COFFEE!\n" +
+                            "YOU HAVE NO CREAM!\n" +
+                            "You have some tasty sugar.\n\n";
+        String result = instance.showInventory();
+        assertEquals(expResult, result);
+        System.out.println("Passed!");
+    }
     
 
     /**
