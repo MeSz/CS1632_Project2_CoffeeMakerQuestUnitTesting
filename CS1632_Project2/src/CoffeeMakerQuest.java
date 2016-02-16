@@ -108,17 +108,14 @@ public class CoffeeMakerQuest {
     private static final String[] furnitures = {"sofa", "record player", "Pizza", "energy drink", "bag of money", "air hockey table"};
     private static final String[] adjNorthDoors = {"Magenta", "Beige", "Dead", "Vivacious", "Purple", null};
     private static final String[] adjSouthDoors = {null, "Massive", "Smart", "Slim", "Sandy", "Minimalist"};
-
+    private static Room[] rooms;
+    private static int num;
+    
     public static void main(String args[]) throws IOException {
         // build all of the rooms from the rooms array
-        Room[] rooms = new Room[adjRooms.length];
-        int num = 0;
-        for (String adjRoom : adjRooms) {
-            rooms[num] = new Room(adjRoom, adjFurniture[num], furnitures[num], 
-                    adjNorthDoors[num], adjSouthDoors[num], true, false, false);
-            num++;
-        }
-        
+    	initializeGame();
+    	
+    	
         // create a reader to get the user's input
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String input;
@@ -128,96 +125,119 @@ public class CoffeeMakerQuest {
         
         // loop until the the player drinks
         boolean done = false;
+        String command = getCommand();
         num = 0;
-        while (!done) {
-            
-            // show the contents of the room and user instructions
-            System.out.println(rooms[num]);
-            System.out.println(" INSTRUCTIONS (N,S,L,I,D) >");
-            
-            // get user input (uppercase)
-            input = br.readLine().toUpperCase();
-            
-            switch (input) {
-                case "N": // go thru the North door (if exists)
-                    if (rooms[num].hasNorthDoor()) {
-                        num++;
-                    } else {
-                        System.out.println("No North door exists!");
-                    }                   
-                    break;
-                    
-                case "S": // go thru the South door (if exists)
-                    if (rooms[num].hasSouthDoor()) {
-                        num--;
-                    } else {
-                        System.out.println("No South door exists!");
-                    }
-                    break;
-                    
-                case "L": // look in the current room for coffee/cream/sugar
-                    if (rooms[num].hasCoffee()) {                        
-                        // add the Coffee item to the player's inventory
-                        player.getCoffee();
-                        System.out.println("There might be something here...\nYou found some caffeinated coffee!");
-                        
-                    } else if (rooms[num].hasCream()) {                        
-                        // add the Cream item to the player's inventory
-                        player.getCream();
-                        System.out.println("There might be something here...\nYou found some creamy cream!");
-                        
-                    } else if (rooms[num].hasSugar()) {                        
-                        // add the Sugar item to the player's inventory
-                        player.getSugar();
-                        System.out.println("There might be something here...\nYou found some sweet sugar!");
-                        
-                    } else {
-                        System.out.println("You don't see anything out of the ordinary.");
-                    }
-                    break;
-                    
-                case "I": // show the current user's coffee-item inventory
-                    System.out.println(player.showInventory());
-                    break;
-                    
-                case "D": // perform the drink operation on the current player
-                    // show the player's inventory
-                    System.out.println(player.showInventory());
-                    
-                    if (player.drink()) {
-                        // SUCCESS!
-                        System.out.println("You drink the beverage and are ready to study!\nYou win!");
-                        
-                    } else if (player.hasCoffee() && player.hasCream()) {
-                        System.out.println("Without sugar, the coffee is too bitter.  You cannot study.\nYou lose!");
-                        
-                    } else if ((player.hasCoffee() && player.hasSugar()) || (player.hasCoffee())) {
-                        System.out.println("Without cream, you get an ulcer and cannot study.\nYou lose!");
-                        
-                    } else if (player.hasSugar() && player.hasCream()) {
-                        System.out.println("You drink the sweetened cream, but without caffeine, you cannot study.\nYou lose!");
-                        
-                    } else if (player.hasSugar()) {
-                        System.out.println("You eat the sugar, but without caffeine, you cannot study.\nYou lose!");
-                        
-                    } else if (player.hasCream()) {
-                        System.out.println("You drink the cream, but without caffeine, you cannot study.\nYou lose!");
-                        
-                    } else {
-                        System.out.println("You drink the air, as you have no coffee, sugar, or cream.\n" +
-                                    "The air is invigorating, but not invigorating enough.  You cannot study.\n" +
-                                    "You lose!");
-                    }
-                    
-                    // in any case, the game is over.
-                    done = true;
-                    
-                    break;
-                    
-                default: // invalid input
-                    System.out.println("What?");
-            }   
+        while (!done) { 
+          // show the contents of the room and user instructions
+          System.out.println(rooms[num]);
+          System.out.println(" INSTRUCTIONS (N,S,L,I,D) >");
+          command = getCommand();
+          done = executeCommand(command, player);  
         }
     }
+
+	private static boolean executeCommand(String command, Player player) {
+		boolean done = false;
+        switch (command) {
+        case "N": // go thru the North door (if exists)
+        	
+            if (rooms[num].hasNorthDoor()) {
+                num++;
+            } else {
+                System.out.println("No North door exists!");
+            }                   
+            break;
+            
+        case "S": // go thru the South door (if exists)
+            if (rooms[num].hasSouthDoor()) {
+                num--;
+            } else {
+                System.out.println("No South door exists!");
+            }
+            break;
+            
+        case "L": // look in the current room for coffee/cream/sugar
+            if (rooms[num].hasCoffee()) {                        
+                // add the Coffee item to the player's inventory
+                player.getCoffee();
+                System.out.println("There might be something here...\nYou found some caffeinated coffee!");
+                
+            } else if (rooms[num].hasCream()) {                        
+                // add the Cream item to the player's inventory
+                player.getCream();
+                System.out.println("There might be something here...\nYou found some creamy cream!");
+                
+            } else if (rooms[num].hasSugar()) {                        
+                // add the Sugar item to the player's inventory
+                player.getSugar();
+                System.out.println("There might be something here...\nYou found some sweet sugar!");
+                
+            } else {
+                System.out.println("You don't see anything out of the ordinary.");
+            }
+            break;
+            
+        case "I": // show the current user's coffee-item inventory
+            System.out.println(player.showInventory());
+            break;
+            
+        case "D": // perform the drink operation on the current player
+            // show the player's inventory
+            System.out.println(player.showInventory());
+            
+            if (player.drink()) {
+                // SUCCESS!
+                System.out.println("You drink the beverage and are ready to study!\nYou win!");
+                
+            } else if (player.hasCoffee() && player.hasCream()) {
+                System.out.println("Without sugar, the coffee is too bitter.  You cannot study.\nYou lose!");
+                
+            } else if ((player.hasCoffee() && player.hasSugar()) || (player.hasCoffee())) {
+                System.out.println("Without cream, you get an ulcer and cannot study.\nYou lose!");
+                
+            } else if (player.hasSugar() && player.hasCream()) {
+                System.out.println("You drink the sweetened cream, but without caffeine, you cannot study.\nYou lose!");
+                
+            } else if (player.hasSugar()) {
+                System.out.println("You eat the sugar, but without caffeine, you cannot study.\nYou lose!");
+                
+            } else if (player.hasCream()) {
+                System.out.println("You drink the cream, but without caffeine, you cannot study.\nYou lose!");
+                
+            } else {
+                System.out.println("You drink the air, as you have no coffee, sugar, or cream.\n" +
+                            "The air is invigorating, but not invigorating enough.  You cannot study.\n" +
+                            "You lose!");
+            }
+            
+            // in any case, the game is over.
+            done = true;
+            
+            break;
+            
+        default: // invalid input
+            System.out.println("What?");
+    } 
+		return done;
+	}
+
+	private static String getCommand() throws IOException {
+		 // create a reader to get the user's input
+		String command;
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        command = br.readLine().toUpperCase();
+		return command;
+	}
+
+	private static void initializeGame() {
+		Room[] rooms = new Room[adjRooms.length];
+        int num = 0;
+        for (String adjRoom : adjRooms) {
+            rooms[num] = new Room(adjRoom, adjFurniture[num], furnitures[num], 
+                    adjNorthDoors[num], adjSouthDoors[num], true, false, false);
+            num++;
+        }
+		
+	}
 
 }

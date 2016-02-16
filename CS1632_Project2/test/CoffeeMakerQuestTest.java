@@ -40,12 +40,17 @@ public class CoffeeMakerQuestTest {
      * Test of main method, of class CoffeeMakerQuest.
      */
     @Test
-    public void testMain() throws Exception {
-        System.out.println("main");
-        String[] args = null;
-        CoffeeMakerQuest.main(args);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testExecuteCommand(){
+        
     }
     
+    @Test
+    public void testInitializeGame(){
+    	Room mockRoom = mock(Room.class);
+    	
+    }
+    @test
+    public void testGetCommand(){
+    	
+    }
 }

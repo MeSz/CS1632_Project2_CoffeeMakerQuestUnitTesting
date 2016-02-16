@@ -13,10 +13,12 @@ public class Room {
     private String adjRoom = null;          // adjective for the room
     private String adjNorthDoor = null;     // adjective for the north door in the room
     private String adjSouthDoor = null;     // adjective for the south door in the room
+    private Player player = null;
 
     private boolean hasCoffee = false;
     private boolean hasCream = false;
     private boolean hasSugar = false;
+    private boolean hasPlayer = false;
 
     /**
      * Creates a new game room, given the following values:
@@ -190,9 +192,12 @@ public class Room {
     /**
      * Gets a description of the entire room including the type of room, furnishing, and doors leading North or South
      * (if either one exists).
+     * @return 
      *
      * @return A description of the entire room.
      */
+    
+    
     @Override
     public String toString() {
         return this.getDescription();
