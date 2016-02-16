@@ -11,36 +11,36 @@ import javax.xml.bind.annotation.XmlElement;
  *
  * --[ REQUIREMENTS ]------------------------------------------------------------------------------------------------
  *
- * [ ] FUN-ITERATION - At each iteration of the game, the user shall be able enter one of six commands - "N" to go
+ * [X] FUN-ITERATION - At each iteration of the game, the user shall be able enter one of six commands - "N" to go
  * North, "S" to go South, "L" to Look for items, "I" for Inventory, "H" for Help, or "D" to Drink.
  *
- * [ ] FUN-UNKNOWN-COMMAND - If a player enters a command not specified by FUN-ITERATION, the system shall respond with
+ * [X] FUN-UNKNOWN-COMMAND - If a player enters a command not specified by FUN-ITERATION, the system shall respond with
  * the phrase "What?".
  *
- * [ ] FUN-INPUT-CAPS - The system shall be case-insensitive in regards to input values; that is, it shall accept
+ * [X] FUN-INPUT-CAPS - The system shall be case-insensitive in regards to input values; that is, it shall accept
  * capital and lower-case letters and treat them as equivalent.
  *
- * [ ] FUN-MOVE - The system shall allow a player to move North only if a door exists going North, and South only if a
+ * [X] FUN-MOVE - The system shall allow a player to move North only if a door exists going North, and South only if a
  * door exists going South.
  *
- * [ ] FUN-WIN - The player shall win the game if and only if Coffee, Sugar, and Cream have been collected by the player
+ * [X] FUN-WIN - The player shall win the game if and only if Coffee, Sugar, and Cream have been collected by the player
  * and then drunk.
  *
- * [ ] FUN-LOSE - The player shall lose the game if and only if the player Drinks but has not collected all of the items
+ * [X] FUN-LOSE - The player shall lose the game if and only if the player Drinks but has not collected all of the items
  * (Coffee, Sugar, and Cream).
  *
- * [ ] FUN-INVENTORY - Upon entering "I" for inventory, the player shall be informed of the items that he/she has
+ * [X] FUN-INVENTORY - Upon entering "I" for inventory, the player shall be informed of the items that he/she has
  * collected (consisting of Coffee, Sugar, and Cream).
  *
- * [ ] FUN-LOOK - Upon entering "L" for Look, the player shall collect any items in the room and those items will be
+ * [X] FUN-LOOK - Upon entering "L" for Look, the player shall collect any items in the room and those items will be
  * added to the player's inventory.
  *
- * [ ] FUN-HELP - Upon entering "H" for Help, the player shall be shown a listing of possible commands and what their
+ * [X] FUN-HELP - Upon entering "H" for Help, the player shall be shown a listing of possible commands and what their
  * effects are.
  *
- * [ ] FUN-UNIQ-ROOM - Each room in the house shall have a unique adjective describing it.
+ * [X] FUN-UNIQ-ROOM - Each room in the house shall have a unique adjective describing it.
  *
- * [ ] FUN-UNIQ-ROOM-FURNISHING - Each room in the house shall have one and only one unique furnishing visible to the
+ * [X] FUN-UNIQ-ROOM-FURNISHING - Each room in the house shall have one and only one unique furnishing visible to the
  * user upon entering the room.
  *
  * --------------------------------------------------------------------------------------------[ END REQUIREMENTS ]--
@@ -48,7 +48,7 @@ import javax.xml.bind.annotation.XmlElement;
  *
  * --[ SELF-CHECKS ]-------------------------------------------------------------------------------------------------
  * 
- * [ ] Game Object
+ * [X] Game Object
  *      [X] ONE player object variable
  *      [X] An array variable of Room objects
  *      [X] A unique array of "adjectives"
@@ -107,7 +107,7 @@ public class CoffeeMakerQuest {
     private static final String[] adjNorthDoors = {"Magenta", "Beige", "Dead", "Vivacious", "Purple", null};
     private static final String[] adjSouthDoors = {null, "Massive", "Smart", "Slim", "Sandy", "Minimalist"};
     private static int num;
-
+    
     public static void main(String args[]) throws IOException {
         // build all of the rooms from the rooms array
         Room[] rooms = initializeGame();

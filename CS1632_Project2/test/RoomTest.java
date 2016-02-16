@@ -9,10 +9,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.mockito.Mock;
-
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
 
 /**
  *
@@ -213,6 +210,4 @@ public class RoomTest {
         assertEquals(expResult, result);
         System.out.println("Passed!");
     }
-    
-    
 }
