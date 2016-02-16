@@ -151,7 +151,7 @@ public class RoomTest {
      */
     @Test
     public void testHasCoffeeFalse() {
-        System.out.println("hasCoffee testing...");
+        System.out.println("hasCoffee=False testing...");
         Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, false);
         boolean expResult = false;
         boolean result = instance.hasCoffee();
@@ -160,7 +160,7 @@ public class RoomTest {
     }
     @Test
     public void testHasCoffeeTrue() {
-        System.out.println("hasCoffee testing...");
+        System.out.println("hasCoffee=True testing...");
         Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, true, false, false);
         boolean expResult = true;
         boolean result = instance.hasCoffee();
@@ -173,7 +173,7 @@ public class RoomTest {
      */
     @Test
     public void testHasCreamFalse() {
-        System.out.println("hasCream testing...");
+        System.out.println("hasCream=False testing...");
         Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, false);
         boolean expResult = false;
         boolean result = instance.hasCream();
@@ -182,7 +182,7 @@ public class RoomTest {
     }
     @Test
     public void testHasCreamTrue() {
-        System.out.println("hasCream testing...");
+        System.out.println("hasCream=True testing...");
         Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, false, true, false);
         boolean expResult = true;
         boolean result = instance.hasCream();
@@ -195,7 +195,7 @@ public class RoomTest {
      */
     @Test
     public void testHasSugarFalse() {
-        System.out.println("hasSugar");
+        System.out.println("hasSugar=False testing...");
         Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, false);
         boolean expResult = false;
         boolean result = instance.hasSugar();
@@ -204,7 +204,7 @@ public class RoomTest {
     }
     @Test
     public void testHasSugarTrue() {
-        System.out.println("hasSugar");
+        System.out.println("hasSugar=True testing...");
         Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, true);
         boolean expResult = true;
         boolean result = instance.hasSugar();

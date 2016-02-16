@@ -156,21 +156,21 @@ public class CoffeeMakerQuest {
                     break;
                     
                 case "L": // look in the current room for coffee/cream/sugar
-                    if (rooms[num].hasCoffee()) {
-                        System.out.println("There might be something here...\nYou found some caffeinated coffee!");
-                        
+                    if (rooms[num].hasCoffee()) {                        
                         // add the Coffee item to the player's inventory
                         player.getCoffee();
-                    } else if (rooms[num].hasCream()) {
-                        System.out.println("There might be something here...\nYou found some creamy cream!");
+                        System.out.println("There might be something here...\nYou found some caffeinated coffee!");
                         
+                    } else if (rooms[num].hasCream()) {                        
                         // add the Cream item to the player's inventory
                         player.getCream();
-                    } else if (rooms[num].hasSugar()) {
-                        System.out.println("There might be something here...\nYou found some sweet sugar!");
+                        System.out.println("There might be something here...\nYou found some creamy cream!");
                         
+                    } else if (rooms[num].hasSugar()) {                        
                         // add the Sugar item to the player's inventory
                         player.getSugar();
+                        System.out.println("There might be something here...\nYou found some sweet sugar!");
+                        
                     } else {
                         System.out.println("You don't see anything out of the ordinary.");
                     }
@@ -182,7 +182,7 @@ public class CoffeeMakerQuest {
                     
                 case "D": // perform the drink operation on the current player
                     // show the player's inventory
-                    player.showInventory();
+                    System.out.println(player.showInventory());
                     
                     if (player.drink()) {
                         // SUCCESS!
@@ -209,7 +209,7 @@ public class CoffeeMakerQuest {
                                     "You lose!");
                     }
                     
-                    // in either case, the game is over.
+                    // in any case, the game is over.
                     done = true;
                     
                     break;

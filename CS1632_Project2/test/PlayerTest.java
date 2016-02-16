@@ -52,28 +52,43 @@ public class PlayerTest {
      * Test of showInventory method, of class Player.
      */
     @Test
-    public void testShowInventory() {
-        System.out.println("showInventory");
+    public void testShowInventoryNone() {
+        System.out.println("showInventory with no items testing...");
         Player instance = new Player();
-        String expResult = "";
+        String expResult = "\nYOU HAVE NO COFFEE!\n" +
+                            "YOU HAVE NO CREAM!\n" +
+                            "YOU HAVE NO SUGAR!\n\n";
         String result = instance.showInventory();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("Passed!");
     }
+    @Test
+    public void testShowInventoryCoffeeCreamSugar() {
+        System.out.println("showInventory with coffee, cream & sugar testing...");
+        Player instance = new Player();
+        instance.getCoffee();
+        instance.getCream();
+        instance.getSugar();
+        String expResult = "\nYou have a cup of delicious coffee.\n" +
+                            "You have some fresh cream.\n" +
+                            "You have some tasty sugar.\n\n";
+        String result = instance.showInventory();
+        assertEquals(expResult, result);
+        System.out.println("Passed!");
+    }
+    
 
     /**
      * Test of hasCoffee method, of class Player.
      */
     @Test
     public void testHasCoffee() {
-        System.out.println("hasCoffee");
+        System.out.println("hasCoffee testing...");
         Player instance = new Player();
         boolean expResult = false;
         boolean result = instance.hasCoffee();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("Passed!");
     }
 
     /**
@@ -81,13 +96,12 @@ public class PlayerTest {
      */
     @Test
     public void testHasCream() {
-        System.out.println("hasCream");
+        System.out.println("hasCream testing...");
         Player instance = new Player();
         boolean expResult = false;
         boolean result = instance.hasCream();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("Passed!");
     }
 
     /**
@@ -95,13 +109,12 @@ public class PlayerTest {
      */
     @Test
     public void testHasSugar() {
-        System.out.println("hasSugar");
+        System.out.println("hasSugar testing...");
         Player instance = new Player();
         boolean expResult = false;
         boolean result = instance.hasSugar();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("Passed!");
     }
 
     /**
@@ -109,11 +122,11 @@ public class PlayerTest {
      */
     @Test
     public void testGetCoffee() {
-        System.out.println("getCoffee");
+        System.out.println("getCoffee testing...");
         Player instance = new Player();
         instance.getCoffee();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(instance.hasCoffee());
+        System.out.println("Passed!");
     }
 
     /**
@@ -121,11 +134,11 @@ public class PlayerTest {
      */
     @Test
     public void testGetCream() {
-        System.out.println("getCream");
+        System.out.println("getCream testing...");
         Player instance = new Player();
         instance.getCream();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(instance.hasCream());
+        System.out.println("Passed!");
     }
 
     /**
@@ -133,11 +146,11 @@ public class PlayerTest {
      */
     @Test
     public void testGetSugar() {
-        System.out.println("getSugar");
+        System.out.println("getSugar testing...");
         Player instance = new Player();
         instance.getSugar();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(instance.hasSugar());
+        System.out.println("Passed!");
     }
     
 }
