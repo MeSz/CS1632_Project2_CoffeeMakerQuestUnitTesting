@@ -48,9 +48,35 @@ public class CoffeeMakerQuestTest {
         assertFalse(CoffeeMakerQuest.executeCommand("N", instance, mockRoom));
         
     }
+    @Test
     public void testExecuteCommand_S(){
+    	Player instance = new Player();
+    	Room mockRoom = mock(Room.class);
+    	when(mockRoom.hasSouthDoor()).thenReturn(true);
+    	assertFalse(CoffeeMakerQuest.executeCommand("S", instance, mockRoom));
+    }
+    @Test
+    public void testExecuteCommand_L(){
+    	Player instance = new Player();
+    	Room mockRoom = mock(Room.class);
+    	when(mockRoom.hasCoffee()).thenReturn(true);
+    	assertFalse(CoffeeMakerQuest.executeCommand("L", instance, mockRoom));
+    }
+    @Test
+    public void testExecuteCommand_I(){
     	Player mockPlayer = mock(Player.class);
-    	
+    	Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, false);
+    	when(mockPlayer.showInventory()).thenReturn("You have a cup of delicious coffee.\n" 
+    												+ "You have some fresh cream.\n" 
+    												+ "You have some tasty sugar.\n" );
+    	assertFalse(CoffeeMakerQuest.executeCommand("I", mockPlayer, instance));
+    }
+    @Test
+    public void testExecuteCommand_D(){
+    	Player mockPlayer = mock(Player.class);
+    	Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, false);
+    	when(mockPlayer.drink()).thenReturn(true);
+    	assertTrue(CoffeeMakerQuest.executeCommand("D", mockPlayer, instance));
     }
     
     @Test

@@ -34,7 +34,7 @@ public class Player {
      * 
      * @return A message indicating which coffee items the player has collected.
      */
-    public String showInventory() {
+    public String showInventory() { 
         StringBuilder sb = new StringBuilder();
         
         sb.append("\n");
