@@ -78,6 +78,12 @@ public class CoffeeMakerQuestTest {
     	when(mockPlayer.drink()).thenReturn(true);
     	assertTrue(CoffeeMakerQuest.executeCommand("D", mockPlayer, instance));
     }
+    @Test
+    public void testExecuteCommand_H(){
+    	Player instance = new Player();
+    	Room mockRoom = mock(Room.class);
+    	assertFalse(CoffeeMakerQuest.executeCommand("h", instance, mockRoom));
+    }
     
     @Test
     public void testInitializeGame(){
