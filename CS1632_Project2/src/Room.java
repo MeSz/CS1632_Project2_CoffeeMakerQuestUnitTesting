@@ -87,6 +87,33 @@ public class Room {
                     + "or only ONE coffee-related item.");
         }
     }
+    
+    /**
+     * Sees if this room has the Coffee item.
+     * 
+     * @return True if the room has the Coffee item; otherwise false.
+     */
+    public boolean hasCoffee() {
+        return this.hasCoffee;
+    }
+    
+    /**
+     * Sees if this room has the Cream item.
+     * 
+     * @return True if the room has the Cream item; otherwise false.
+     */
+    public boolean hasCream() {
+        return this.hasCream;
+    }
+    
+    /**
+     * Sees if this room has the Sugar item.
+     * 
+     * @return True if the room has the Sugar item; otherwise false.
+     */
+    public boolean hasSugar() {
+        return this.hasSugar;
+    }
 
     /**
      * Gets the description of the furnishing in this room.

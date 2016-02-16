@@ -145,5 +145,71 @@ public class RoomTest {
         assertEquals(expResult, result);
         System.out.println("Passed!");
     }
+
+    /**
+     * Test of hasCoffee method, of class Room.
+     */
+    @Test
+    public void testHasCoffeeFalse() {
+        System.out.println("hasCoffee testing...");
+        Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, false);
+        boolean expResult = false;
+        boolean result = instance.hasCoffee();
+        assertEquals(expResult, result);
+        System.out.println("Passed!");
+    }
+    @Test
+    public void testHasCoffeeTrue() {
+        System.out.println("hasCoffee testing...");
+        Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, true, false, false);
+        boolean expResult = true;
+        boolean result = instance.hasCoffee();
+        assertEquals(expResult, result);
+        System.out.println("Passed!");
+    }
+
+    /**
+     * Test of hasCream method, of class Room.
+     */
+    @Test
+    public void testHasCreamFalse() {
+        System.out.println("hasCream testing...");
+        Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, false);
+        boolean expResult = false;
+        boolean result = instance.hasCream();
+        assertEquals(expResult, result);
+        System.out.println("Passed!");
+    }
+    @Test
+    public void testHasCreamTrue() {
+        System.out.println("hasCream testing...");
+        Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, false, true, false);
+        boolean expResult = true;
+        boolean result = instance.hasCream();
+        assertEquals(expResult, result);
+        System.out.println("Passed!");
+    }
+
+    /**
+     * Test of hasSugar method, of class Room.
+     */
+    @Test
+    public void testHasSugarFalse() {
+        System.out.println("hasSugar");
+        Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, false);
+        boolean expResult = false;
+        boolean result = instance.hasSugar();
+        assertEquals(expResult, result);
+        System.out.println("Passed!");
+    }
+    @Test
+    public void testHasSugarTrue() {
+        System.out.println("hasSugar");
+        Room instance = new Room("Small", "Quaint", "sofa", "Magenta", null, false, false, true);
+        boolean expResult = true;
+        boolean result = instance.hasSugar();
+        assertEquals(expResult, result);
+        System.out.println("Passed!");
+    }
     
 }
